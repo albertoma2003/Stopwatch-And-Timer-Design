@@ -1,228 +1,632 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2022.2 (64-bit)              -->
-<!--                                                         -->
-<!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
+// ----------------------------------------
+// State Encoding
+// ----------------------------------------
+localparam Mode1 = 2'b00,
+           Mode2 = 2'b01,
+           Mode3 = 2'b10,
+           Mode4 = 2'b11,
 
-<Project Version="7" Minor="61" Path="C:/Users/alber/EE 316/Project6/Project6.xpr">
-  <DefaultLaunch Dir="$PRUNDIR"/>
-  <Configuration>
-    <Option Name="Id" Val="cffbce1f329141f797531a82982d6371"/>
-    <Option Name="Part" Val="xc7a35tcpg236-1"/>
-    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
-    <Option Name="CompiledLibDirXSim" Val=""/>
-    <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
-    <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
-    <Option Name="CompiledLibDirXcelium" Val="$PCACHEDIR/compile_simlib/xcelium"/>
-    <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
-    <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
-    <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
-    <Option Name="SimulatorInstallDirModelSim" Val=""/>
-    <Option Name="SimulatorInstallDirQuesta" Val=""/>
-    <Option Name="SimulatorInstallDirXcelium" Val=""/>
-    <Option Name="SimulatorInstallDirVCS" Val=""/>
-    <Option Name="SimulatorInstallDirRiviera" Val=""/>
-    <Option Name="SimulatorInstallDirActiveHdl" Val=""/>
-    <Option Name="SimulatorGccInstallDirModelSim" Val=""/>
-    <Option Name="SimulatorGccInstallDirQuesta" Val=""/>
-    <Option Name="SimulatorGccInstallDirXcelium" Val=""/>
-    <Option Name="SimulatorGccInstallDirVCS" Val=""/>
-    <Option Name="SimulatorGccInstallDirRiviera" Val=""/>
-    <Option Name="SimulatorGccInstallDirActiveHdl" Val=""/>
-    <Option Name="SimulatorVersionXsim" Val="2022.2"/>
-    <Option Name="SimulatorVersionModelSim" Val="2022.2"/>
-    <Option Name="SimulatorVersionQuesta" Val="2022.2"/>
-    <Option Name="SimulatorVersionXcelium" Val="21.09.009"/>
-    <Option Name="SimulatorVersionVCS" Val="S-2021.09"/>
-    <Option Name="SimulatorVersionRiviera" Val="2022.04"/>
-    <Option Name="SimulatorVersionActiveHdl" Val="13.0"/>
-    <Option Name="SimulatorGccVersionXsim" Val="6.2.0"/>
-    <Option Name="SimulatorGccVersionModelSim" Val="7.4.0"/>
-    <Option Name="SimulatorGccVersionQuesta" Val="7.4.0"/>
-    <Option Name="SimulatorGccVersionXcelium" Val="9.3.0"/>
-    <Option Name="SimulatorGccVersionVCS" Val="9.2.0"/>
-    <Option Name="SimulatorGccVersionRiviera" Val="9.3.0"/>
-    <Option Name="SimulatorGccVersionActiveHdl" Val="9.3.0"/>
-    <Option Name="BoardPart" Val=""/>
-    <Option Name="ActiveSimSet" Val="sim_1"/>
-    <Option Name="DefaultLib" Val="xil_defaultlib"/>
-    <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
-    <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
-    <Option Name="IPCachePermission" Val="read"/>
-    <Option Name="IPCachePermission" Val="write"/>
-    <Option Name="EnableCoreContainer" Val="FALSE"/>
-    <Option Name="EnableResourceEstimation" Val="FALSE"/>
-    <Option Name="SimCompileState" Val="TRUE"/>
-    <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
-    <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
-    <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
-    <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="0"/>
-    <Option Name="WTModelSimLaunchSim" Val="0"/>
-    <Option Name="WTQuestaLaunchSim" Val="0"/>
-    <Option Name="WTIesLaunchSim" Val="0"/>
-    <Option Name="WTVcsLaunchSim" Val="0"/>
-    <Option Name="WTRivieraLaunchSim" Val="0"/>
-    <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="0"/>
-    <Option Name="WTModelSimExportSim" Val="0"/>
-    <Option Name="WTQuestaExportSim" Val="0"/>
-    <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="0"/>
-    <Option Name="WTRivieraExportSim" Val="0"/>
-    <Option Name="WTActivehdlExportSim" Val="0"/>
-    <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
-    <Option Name="XSimRadix" Val="hex"/>
-    <Option Name="XSimTimeUnit" Val="ns"/>
-    <Option Name="XSimArrayDisplayLimit" Val="1024"/>
-    <Option Name="XSimTraceLimit" Val="65536"/>
-    <Option Name="SimTypes" Val="rtl"/>
-    <Option Name="SimTypes" Val="bfm"/>
-    <Option Name="SimTypes" Val="tlm"/>
-    <Option Name="SimTypes" Val="tlm_dpi"/>
-    <Option Name="MEMEnableMemoryMapGeneration" Val="TRUE"/>
-    <Option Name="DcpsUptoDate" Val="TRUE"/>
-    <Option Name="ClassicSocBoot" Val="FALSE"/>
-    <Option Name="LocalIPRepoLeafDirName" Val="ip_repo"/>
-  </Configuration>
-  <FileSets Version="1" Minor="31">
-    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
-      <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/new/stopwatch_timer.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="programmableStopwatch_Timer"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
-      <Filter Type="Constrs"/>
-      <File Path="$PSRCDIR/constrs_1/imports/Lab_3/Basys3_Master.xdc">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab_3/Basys3_Master.xdc"/>
-          <Attr Name="ImportTime" Val="1675914730"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="ConstrsType" Val="XDC"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
-      <Filter Type="Srcs"/>
-      <Config>
-        <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="programmableStopwatch_Timer"/>
-        <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
-        <Option Name="TransportPathDelay" Val="0"/>
-        <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SelectedSimModel" Val="rtl"/>
-        <Option Name="PamDesignTestbench" Val=""/>
-        <Option Name="PamDutBypassFile" Val="xil_dut_bypass"/>
-        <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
-        <Option Name="PamPseudoTop" Val="pseudo_tb"/>
-        <Option Name="SrcSet" Val="sources_1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
-      <Filter Type="Utils"/>
-      <File Path="$PSRCDIR/utils_1/imports/synth_1/stopwatch_timer.dcp">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedInSteps" Val="synth_1"/>
-          <Attr Name="AutoDcp" Val="1"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopAutoSet" Val="TRUE"/>
-      </Config>
-    </FileSet>
-  </FileSets>
-  <Simulators>
-    <Simulator Name="XSim">
-      <Option Name="Description" Val="Vivado Simulator"/>
-      <Option Name="CompiledLib" Val="0"/>
-    </Simulator>
-    <Simulator Name="ModelSim">
-      <Option Name="Description" Val="ModelSim Simulator"/>
-    </Simulator>
-    <Simulator Name="Questa">
-      <Option Name="Description" Val="Questa Advanced Simulator"/>
-    </Simulator>
-    <Simulator Name="Riviera">
-      <Option Name="Description" Val="Riviera-PRO Simulator"/>
-    </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
-    </Simulator>
-  </Simulators>
-  <Runs Version="1" Minor="19">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/stopwatch_timer.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-  </Runs>
-  <Board/>
-  <DashboardSummary Version="1" Minor="0">
-    <Dashboards>
-      <Dashboard Name="default_dashboard">
-        <Gadgets>
-          <Gadget Name="drc_1" Type="drc" Version="1" Row="2" Column="0">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_drc_0 "/>
-          </Gadget>
-          <Gadget Name="methodology_1" Type="methodology" Version="1" Row="2" Column="1">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_methodology_0 "/>
-          </Gadget>
-          <Gadget Name="power_1" Type="power" Version="1" Row="1" Column="0">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_power_0 "/>
-          </Gadget>
-          <Gadget Name="timing_1" Type="timing" Version="1" Row="0" Column="1">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_route_report_timing_summary_0 "/>
-          </Gadget>
-          <Gadget Name="utilization_1" Type="utilization" Version="1" Row="0" Column="0">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="synth_1#synth_1_synth_report_utilization_0 "/>
-            <GadgetParam Name="RUN.STEP" Type="string" Value="synth_design"/>
-            <GadgetParam Name="RUN.TYPE" Type="string" Value="synthesis"/>
-          </Gadget>
-          <Gadget Name="utilization_2" Type="utilization" Version="1" Row="1" Column="1">
-            <GadgetParam Name="REPORTS" Type="string_list" Value="impl_1#impl_1_place_report_utilization_0 "/>
-          </Gadget>
-        </Gadgets>
-      </Dashboard>
-      <CurrentDashboard>default_dashboard</CurrentDashboard>
-    </Dashboards>
-  </DashboardSummary>
-</Project>
+           Initial_State = 3'b000,
+           Wait_State = 3'b001,
+           Wait2_State = 3'b010,
+           CountUp_State = 3'b011,
+           Pause_State = 3'b100,
+           MaxCount_State = 3'b101;
+
+// ----------------------------------------
+// Main Program
+// ----------------------------------------
+module programmableStopwatch_Timer(
+	input clk,
+	input [1:0] mode, // mode selection swithces
+	input start_stop,
+	input reset,
+	input [7:0] sw,
+	output [3:0] an, // output ports to U2, U3, V4, and W4 in 7-seg display
+	output [6:0] sseg,
+	output dp        // . between seconds and milliseconds
+	);
+
+    wire slow_clk;
+	wire sseg_clk;
+	wire [6:0] in0, in1, in2, in3;
+	reg [2:0] state;
+	reg [2:0] next_state;
+
+	// Module instantiation of 7-segment display
+	reg [3:0] digit0;
+    reg [3:0] digit1;
+    reg [3:0] digit2;
+    reg [3:0] digit3;
+
+   	// digit 0
+	Hexto7segment h1 (.x(digit0), .r(in0));
+	// digit 1
+	Hexto7segment h2 (.x(digit1), .r(in1));
+	// digit 2
+	Hexto7segment h3 (.x(digit2), .r(in2));
+	// digit 3
+	Hexto7segment h4 (.x(digit3), .r(in3));
+
+
+	// clock divider instantiation
+    clkdiv c0 (.clk(clk), .clk_out(slow_clk));
+    clkdiv_sseg c1 (.clk(clk), .clk_out(sseg_clk));
+
+
+	state_machine sm(
+    	.clk(sseg_clk),
+    	.reset(reset),
+    	.in0(in0),
+    	.in1(in1),
+    	.in2(in2),
+    	.in3(in3),
+    	.an(an),
+    	.sseg(sseg),
+    	.dp(dp)
+	);
+
+	initial begin
+  	state = 3'b000;
+	end
+
+    reg [15:0] count = 0;
+	always @ (posedge slow_clk) begin
+    	case (mode)
+
+    	Mode1: begin
+        	case(state)
+            	// Initial State
+            	Initial_State: begin
+            	    begin
+                    digit0 <= 0;
+                    digit1 <= 0;
+                    digit2 <= 0;
+                    digit3 <= 0;
+                    count <= 0;
+                    end
+
+                    if(start_stop)
+                        next_state <= Wait_State;
+                    else
+                        next_state <= Initial_State;
+            	end
+
+               	// Wait State to start
+            	Wait_State: begin
+                    if(!start_stop)
+                        next_state <= CountUp_State;
+                    else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait_State;
+                        end
+
+              	end
+
+                // Count Up State form 0-99
+            	CountUp_State: begin
+            	   if(reset)
+            	       next_state <= Initial_State;
+
+            	   if(start_stop)
+            	       next_state <= Wait2_State;
+
+
+            	   // need a state for Max Count
+            	   else if(digit0 == 9 && digit1 == 9 && digit2 == 9 && digit3 == 9)
+            	       next_state <= MaxCount_State;
+
+            	   else
+            	       // update count
+            	        begin
+            	        digit0 <= (count%10);
+                        digit1 <= ((count/10)%10);
+                        digit2 <= ((count/100)%10);
+                        digit3 <= ((count/1000)%10);
+                        count <= count + 1;
+                        next_state <= CountUp_State;
+                        end
+            	end
+
+            	// Wait State to Pause
+            	Wait2_State: begin
+
+            	   if(!start_stop)
+                        next_state <= Pause_State;
+                   else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait2_State;
+                        end
+            	end
+
+            	// Pause State
+            	Pause_State: begin
+            	   if(!start_stop && !reset)
+            	       next_state = Pause_State;
+            	   if(start_stop)
+            	       next_state = Wait_State;
+            	   else if(reset)
+            	       next_state = Initial_State;
+                end
+
+            	// 99.99 reached
+            	MaxCount_State: begin
+            	   begin
+            	   digit0 <= digit0;
+            	   digit1 <= digit1;
+            	   digit2 <= digit2;
+            	   digit3 <= digit3;
+            	   end
+            	   if(reset)
+            	       next_state <= Initial_State;
+            	   else
+            	       next_state <= MaxCount_State;
+                end
+       	endcase
+       	end
+    	// <-------------------------------------------------------------------->
+    	// <-------------------------------------------------------------------->
+       Mode2: begin
+        	case(state)
+        	    // Initial State
+            	Initial_State: begin
+              	    begin
+              	    // set to externally loaded values
+                	digit0 <= 0;
+                	digit1 <= 0;
+                	digit2 <= sw[3:0];
+                	digit3 <= sw[7:4];
+                	count <= ((digit3*1000) + (digit2*100) + 0 + 0);
+                    end
+              	if(start_stop)
+                	next_state <= Wait_State;
+              	else
+                	next_state <= Initial_State;
+                end
+
+               	// Wait State
+            	Wait_State: begin
+              	if(!start_stop)
+              	     next_state <= CountUp_State;
+              	else
+              	     // retain same value in wait state
+                     begin
+                     digit0 <= digit0;
+                     digit1 <= digit1;
+            	     digit2 <= digit2;
+                	 digit3 <= digit3;
+                	 count <= count;
+                     next_state <= Wait_State;
+                     end
+              	end
+
+              	// Count Up State form externally loaded value - 99.99
+            	CountUp_State: begin
+            	   if(reset)
+            	       next_state <= Initial_State;
+
+            	   else if(start_stop)
+            	       next_state <= Wait2_State;
+
+            	   // need a state for Max Count
+            	   else if(digit0 == 9 && digit1 == 9 && digit2 == 9 && digit3 == 9)
+            	       next_state <= MaxCount_State;
+
+            	   // count is in binary, not decimal, so convert
+            	   else
+            	       // update count
+
+            	        begin
+            	        digit0 <= (count%10);
+                        digit1 <= ((count/10)%10);
+                        digit2 <= ((count/100)%10);
+                        digit3 <= ((count/1000)%10);
+                        count <= count + 16'b0000000000000001;
+                        next_state <= CountUp_State;
+                        end
+            	end
+
+              	// Wait State to Pause
+            	Wait2_State: begin
+            	   if(!start_stop)
+                        next_state <= Pause_State;
+                   else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait2_State;
+                        end
+            	end
+
+            	// Pause State
+            	Pause_State: begin
+            	   if(start_stop)
+            	       next_state = Wait_State;
+            	   else if(reset)
+            	       next_state = Initial_State;
+            	   else
+            	       begin
+                       digit0 <= digit0;
+            	       digit1 <= digit1;
+            	       digit2 <= digit2;
+            	       digit3 <= digit3;
+            	       next_state = Pause_State;
+            	       end
+                end
+
+            	// 99.99 reached
+            	MaxCount_State: begin
+            	   begin
+            	   digit0 <= digit0;
+            	   digit1 <= digit1;
+            	   digit2 <= digit2;
+            	   digit3 <= digit3;
+            	   end
+            	   if(reset)
+            	       next_state <= Initial_State;
+            	   else
+            	       next_state <= MaxCount_State;
+                end
+          endcase
+    	  end
+//    	// <-------------------------------------------------------------------->
+//    	// <-------------------------------------------------------------------->
+    	Mode3: begin
+        	case(state)
+            	// Initial State
+            	Initial_State: begin
+            	    begin
+                    digit0 <= 9;
+                    digit1 <= 9;
+                    digit2 <= 9;
+                    digit3 <= 9;
+                    count <= 9999;
+                    end
+
+                    if(start_stop)
+                        next_state <= Wait_State;
+                    else
+                        next_state <= Initial_State;
+            	       end
+
+               	// Wait State to start
+            	Wait_State: begin
+                    if(!start_stop)
+                        next_state <= CountUp_State;
+                    else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait_State;
+                        end
+
+              	end
+
+                // Count Up State form 0-99
+            	CountUp_State: begin
+            	   if(reset)
+            	       next_state <= Initial_State;
+
+            	   if(start_stop)
+            	       next_state <= Wait2_State;
+
+
+            	   // need a state for Max Count
+            	   else if(digit0 == 0 && digit1 == 0 && digit2 == 0 && digit3 == 0)
+            	       next_state <= MaxCount_State;
+
+            	   else
+            	       // update count
+            	        begin
+            	        digit0 <= (count%10);
+                        digit1 <= ((count/10)%10);
+                        digit2 <= ((count/100)%10);
+                        digit3 <= ((count/1000)%10);
+                        count <= count - 1;
+                        next_state <= CountUp_State;
+                        end
+            	end
+
+            	// Wait State to Pause
+            	Wait2_State: begin
+
+            	   if(!start_stop)
+                        next_state <= Pause_State;
+                   else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait2_State;
+                        end
+            	end
+
+            	// Pause State
+            	Pause_State: begin
+            	   if(!start_stop && !reset)
+            	       next_state = Pause_State;
+            	   if(start_stop)
+            	       next_state = Wait_State;
+            	   else if(reset)
+            	       next_state = Initial_State;
+                end
+
+            	// 99.99 reached
+            	MaxCount_State: begin
+            	   begin
+            	   digit0 <= digit0;
+            	   digit1 <= digit1;
+            	   digit2 <= digit2;
+            	   digit3 <= digit3;
+            	   end
+            	   if(reset)
+            	       next_state <= Initial_State;
+            	   else
+            	       next_state <= MaxCount_State;
+                end
+       	endcase
+       	end
+//    	// <-------------------------------------------------------------------->
+//    	// <-------------------------------------------------------------------->
+    	Mode4: begin
+        	case(state)
+        	    // Initial State
+            	Initial_State: begin
+              	    begin
+              	    // set to externally loaded values
+                	digit0 <= 9;
+                	digit1 <= 9;
+                	digit2 <= sw[3:0];
+                	digit3 <= sw[7:4];
+                	count <=((digit3*1000) + (digit2*100) + 90 + 9);
+                    end
+              	if(start_stop)
+                	next_state <= Wait_State;
+              	else
+                	next_state <= Initial_State;
+                end
+
+               	// Wait State
+            	Wait_State: begin
+              	if(!start_stop)
+              	     next_state <= CountUp_State;
+              	else
+              	     // retain same value in wait state
+                     begin
+                     digit0 <= digit0;
+                     digit1 <= digit1;
+            	     digit2 <= digit2;
+                	 digit3 <= digit3;
+                	 count <= count;
+                     next_state <= Wait_State;
+                     end
+              	end
+
+              	// Count Up State form externally loaded value - 99.99
+            	CountUp_State: begin
+            	   if(reset)
+            	       next_state <= Initial_State;
+
+            	   else if(start_stop)
+            	       next_state <= Wait2_State;
+
+            	   // need a state for Max Count
+            	   else if(digit0 == 0 && digit1 == 0 && digit2 == 0 && digit3 == 0)
+            	       next_state <= MaxCount_State;
+
+            	   // count is in binary, not decimal, so convert
+            	   else
+            	       // update count
+
+            	        begin
+            	        digit0 <= (count%10);
+                        digit1 <= ((count/10)%10);
+                        digit2 <= ((count/100)%10);
+                        digit3 <= ((count/1000)%10);
+                        count <= count - 16'b0000000000000001;
+                        next_state <= CountUp_State;
+                        end
+            	end
+
+              	// Wait State to Pause
+            	Wait2_State: begin
+            	   if(!start_stop)
+                        next_state <= Pause_State;
+                   else
+                        // retain same value in wait state
+                        begin
+                        digit0 <= digit0;
+            	        digit1 <= digit1;
+            	        digit2 <= digit2;
+            	        digit3 <= digit3;
+                        next_state <= Wait2_State;
+                        end
+            	end
+
+            	// Pause State
+            	Pause_State: begin
+            	   if(start_stop)
+            	       next_state = Wait_State;
+            	   else if(reset)
+            	       next_state = Initial_State;
+            	   else
+            	       begin
+                       digit0 <= digit0;
+            	       digit1 <= digit1;
+            	       digit2 <= digit2;
+            	       digit3 <= digit3;
+            	       next_state = Pause_State;
+            	       end
+                end
+
+            	// 99.99 reached
+            	MaxCount_State: begin
+            	   begin
+            	   digit0 <= digit0;
+            	   digit1 <= digit1;
+            	   digit2 <= digit2;
+            	   digit3 <= digit3;
+            	   end
+            	   if(reset)
+            	       next_state <= Initial_State;
+            	   else
+            	       next_state <= MaxCount_State;
+                end
+          endcase
+    	  end
+    	endcase
+	end
+
+	always @ (posedge slow_clk) begin
+    	case (mode)
+      	Mode1: begin  //Mode 1
+          	state <= next_state; end
+        Mode2: begin  //Mode 2
+          	state <= next_state; end
+      	Mode3: begin  //Mode
+      	  	state <= next_state; end
+      	Mode4: begin  //Mode 4
+          	state <= next_state; end
+    	endcase
+	end
+endmodule
+
+module state_machine(
+	input clk,
+	input reset,
+	input [6:0] in0,
+	input [6:0] in1,
+	input [6:0] in2,
+	input [6:0] in3,
+	output reg [3:0] an,
+	output reg [6:0] sseg,
+	output reg dp
+	);
+
+	reg [1:0] state;
+	reg [1:0] nextstate;
+
+	// Lab 4
+	always @(*) begin
+    	case(state)
+      	2'b00: begin
+        	nextstate = 2'b01;
+      	end
+      	2'b01: begin
+        	nextstate = 2'b10;
+      	end
+      	2'b10: begin
+        	nextstate = 2'b11;
+      	end
+      	2'b11: begin
+        	nextstate = 2'b00;
+      	end
+    	endcase
+	end
+	always @(*) begin
+    	case(state)
+      	2'b00: begin
+        	sseg = in0;
+        	an = 4'b1110;
+        	dp = 1;
+      	end
+      	2'b01: begin
+        	sseg = in1;
+        	an = 4'b1101;
+        	dp = 1;
+      	end
+      	2'b10: begin
+        	sseg = in2;
+        	an = 4'b1011;
+        	dp = 0;
+      	end
+      	2'b11: begin
+        	sseg = in3;
+        	an = 4'b0111;
+        	dp = 1;
+      	end
+    	endcase
+	end
+		always @(posedge clk) begin
+    	state <= nextstate;
+	end
+
+
+endmodule
+
+module Hexto7segment(
+    input [3:0] x,     // number to display
+    output reg [6:0] r // 7-seg display
+    );
+
+    // Behavioral (Negative Logic)
+    always @(*)
+    case (x)
+         4'b0000 : r = 7'b0000001; // 0
+         4'b0001 : r = 7'b1001111; // 1
+         4'b0010 : r = 7'b0010010; // 2
+         4'b0011 : r = 7'b0000110; // 3
+         4'b0100 : r = 7'b1001100; // 4
+         4'b0101 : r = 7'b0100100; // 5
+         4'b0110 : r = 7'b0100000; // 6
+         4'b0111 : r = 7'b0001111; // 7
+         4'b1000 : r = 7'b0000000; // 8
+         4'b1001 : r = 7'b0001100; // 9
+//         // ERROR
+//         4'b1010 : r = 7'b0110000; // E
+//         4'b1011 : r = 7'b0110000; // E
+//         4'b1100 : r = 7'b0110000; // E
+//         4'b1101 : r = 7'b0110000; // E
+//         4'b1110 : r = 7'b0110000; // E
+//         4'b1111 : r = 7'b0110000; // E
+    endcase
+endmodule
+
+module clkdiv (
+    input clk,
+    output clk_out
+);
+    reg [19:0] COUNT;
+    assign clk_out = COUNT[19];
+    initial COUNT = 0;
+
+    always @(posedge clk)
+    begin
+       COUNT = COUNT +1;
+    end
+endmodule
+
+
+module clkdiv_sseg(
+    input clk,
+    output clk_out
+);
+
+    reg [11:0] COUNT;
+    assign clk_out = COUNT[11];
+
+    initial COUNT = 0;
+    always @(posedge clk)
+        begin
+            COUNT = COUNT + 1;
+    end
+
+endmodule
